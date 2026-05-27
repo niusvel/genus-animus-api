@@ -1,0 +1,120 @@
+{
+  "id": "bosque_amanecer",
+  "zona": "bosque_exterior",
+  "nombre": "El Bosque del Amanecer",
+  "checkpoint": true,
+  "flags_que_requiere": ["first_mutation_completed"],
+  "flags_que_otorga": ["bosque_amanecer_visitado"],
+
+  "comandos_iniciales": ["OBSERVAR", "ESCUCHAR", "EXAMINAR", "AYUDA"],
+  "comandos_desbloqueables": ["IR", "FRAGMENTOS", "INVENTARIO", "ESTADO"],
+
+  "objetos": [
+    {
+      "id": "arbol",
+      "nombre": "árbol",
+      "descripcion_corta": "una columna enorme de superficie rugosa y viva",
+      "tomable": false,
+      "examinable": true,
+      "usos_examinar": 1,
+      "visible_desde_inicio": true
+    },
+    {
+      "id": "abertura",
+      "nombre": "abertura",
+      "descripcion_corta": "una abertura en la base de un árbol, pequeña y gastada",
+      "tomable": false,
+      "examinable": true,
+      "usos_examinar": 1,
+      "visible_desde_inicio": true
+    },
+    {
+      "id": "suelo",
+      "nombre": "suelo",
+      "descripcion_corta": "capas de materia orgánica húmeda y viva",
+      "tomable": false,
+      "examinable": true,
+      "usos_examinar": 1,
+      "visible_desde_inicio": true
+    }
+  ],
+
+  "contadores": {},
+
+  "desbloqueos": [
+    {
+      "id": "desbloqueo_ir",
+      "condicion": {
+        "tipo": "flag",
+        "flag": "bosque_amanecer_visitado"
+      },
+      "desbloquea_comandos": ["IR", "FRAGMENTOS", "INVENTARIO", "ESTADO"],
+      "texto_id": null,
+      "se_repite": false
+    }
+  ],
+
+  "salidas": [
+    {
+      "id": "salida_sendero",
+      "comando": "IR",
+      "palabra_clave": "sendero",
+      "destino": "cueva_salida",
+      "requiere_flag": null,
+      "texto_bloqueado_id": null,
+      "texto_transicion_id": "ir_sendero_regreso"
+    },
+    {
+      "id": "salida_agua",
+      "comando": "IR",
+      "palabra_clave": "agua",
+      "destino": "orilla_arroyo",
+      "requiere_flag": null,
+      "texto_bloqueado_id": null,
+      "texto_transicion_id": "ir_agua"
+    },
+    {
+      "id": "salida_interior",
+      "comando": "IR",
+      "palabra_clave": "interior",
+      "destino": "bosque_profundo",
+      "requiere_flag": null,
+      "texto_bloqueado_id": null,
+      "texto_transicion_id": "ir_interior"
+    }
+  ],
+
+  "entradas": [
+    {
+      "origen": "cueva_salida",
+      "texto_llegada_id": "llegada"
+    },
+    {
+      "origen": "orilla_arroyo",
+      "texto_llegada_id": "llegada_regreso"
+    },
+    {
+      "origen": "bosque_profundo",
+      "texto_llegada_id": "llegada_regreso"
+    }
+  ],
+
+  "logica_observar": {
+    "primera_vez": "observar_1",
+    "repetido": "observar_repetido"
+  },
+
+  "logica_escuchar": {
+    "primera_vez": "escuchar_1",
+    "repetido": "escuchar_repetido"
+  },
+
+  "logica_examinar": {
+    "arbol_disponible": "examinar_arbol",
+    "arbol_agotado": "examinar_arbol_agotado",
+    "abertura_disponible": "examinar_abertura",
+    "abertura_agotado": "examinar_abertura_agotado",
+    "suelo_disponible": "examinar_suelo",
+    "suelo_agotado": "examinar_suelo_agotado"
+  }
+}
