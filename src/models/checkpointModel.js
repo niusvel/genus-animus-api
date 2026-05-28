@@ -7,6 +7,7 @@ const parseCheckpointRow = (row) => {
     ...row,
     inventory: JSON.parse(row.inventory || '[]'),
     flags: JSON.parse(row.flags || '{}'),
+    morfologia: row.morfologia ? JSON.parse(row.morfologia) : null,
   };
 };
 
@@ -43,12 +44,12 @@ const createCheckpoint = async (data) => {
       id, user_id, checkpoint_name, current_scene, defeated_enemies,
       gene_cognition, gene_adaptability, gene_cohesion, gene_metabolism,
       gene_substrate, gene_collective_memory, dna_fragments,
-      dominant_phenotype, inventory, flags
+      dominant_phenotype, morfologia, inventory, flags
     ) VALUES (
       ?, ?, ?, ?, ?,
       ?, ?, ?, ?,
       ?, ?, ?,
-      ?, ?, ?
+      ?, ?, ?, ?
     );
   `;
 
@@ -68,6 +69,7 @@ const createCheckpoint = async (data) => {
       data.gene_collective_memory,
       data.dna_fragments,
       data.dominant_phenotype,
+      data.morfologia ? JSON.stringify(data.morfologia) : null,
       JSON.stringify(data.inventory),
       JSON.stringify(data.flags),
     ],
@@ -88,6 +90,7 @@ const updateCheckpointTimestamp = async (id, data) => {
       gene_collective_memory = ?,
       dna_fragments = ?,
       dominant_phenotype = ?,
+      morfologia = ?,
       inventory = ?,
       flags = ?,
       created_at = datetime('now')
@@ -105,6 +108,7 @@ const updateCheckpointTimestamp = async (id, data) => {
       data.gene_collective_memory,
       data.dna_fragments,
       data.dominant_phenotype,
+      data.morfologia ? JSON.stringify(data.morfologia) : null,
       JSON.stringify(data.inventory),
       JSON.stringify(data.flags),
       id,

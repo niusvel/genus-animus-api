@@ -7,6 +7,7 @@ const parseGameRow = (row) => {
     ...row,
     inventory: JSON.parse(row.inventory || '[]'),
     flags: JSON.parse(row.flags || '{}'),
+    morfologia: row.morfologia ? JSON.parse(row.morfologia) : null,
   };
 };
 
@@ -25,12 +26,12 @@ const createGame = async (gameData) => {
       id, user_id, current_scene, current_checkpoint, defeated_enemies,
       gene_cognition, gene_adaptability, gene_cohesion, gene_metabolism,
       gene_substrate, gene_collective_memory, dna_fragments,
-      dominant_phenotype, inventory, flags
+      dominant_phenotype, morfologia, inventory, flags
     ) VALUES (
       ?, ?, ?, ?, ?,
       ?, ?, ?, ?,
       ?, ?, ?,
-      ?, ?, ?
+      ?, ?, ?, ?
     );
   `;
 
@@ -50,6 +51,7 @@ const createGame = async (gameData) => {
       gameData.gene_collective_memory,
       gameData.dna_fragments,
       gameData.dominant_phenotype,
+      gameData.morfologia ? JSON.stringify(gameData.morfologia) : null,
       JSON.stringify(gameData.inventory),
       JSON.stringify(gameData.flags),
     ],
@@ -72,6 +74,7 @@ const updateGame = async (userId, gameData) => {
       gene_collective_memory = ?,
       dna_fragments = ?,
       dominant_phenotype = ?,
+      morfologia = ?,
       inventory = ?,
       flags = ?,
       updated_at = datetime('now')
@@ -92,6 +95,7 @@ const updateGame = async (userId, gameData) => {
       gameData.gene_collective_memory,
       gameData.dna_fragments,
       gameData.dominant_phenotype,
+      gameData.morfologia ? JSON.stringify(gameData.morfologia) : null,
       JSON.stringify(gameData.inventory),
       JSON.stringify(gameData.flags),
       userId,

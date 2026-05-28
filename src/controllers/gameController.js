@@ -56,6 +56,7 @@ const getState = async (req, res) => {
         sustrato: game.gene_substrate,
         memoria_colectiva: game.gene_collective_memory,
       },
+      morfologia: game.morfologia,
       inventario: game.inventory,
       flags: game.flags,
     });
@@ -131,6 +132,7 @@ const checkpoint = async (req, res) => {
     genes, 
     dna_fragments, 
     dominant_phenotype, 
+    morfologia,
     inventory, 
     flags 
   } = req.body;
@@ -178,6 +180,7 @@ const checkpoint = async (req, res) => {
       gene_collective_memory: genes.collectiveMemory,
       dna_fragments,
       dominant_phenotype,
+      morfologia,
       inventory,
       flags
     };
@@ -205,6 +208,7 @@ const checkpoint = async (req, res) => {
         gene_collective_memory: genes.collectiveMemory,
         dna_fragments,
         dominant_phenotype,
+        morfologia,
         inventory,
         flags
       };
@@ -256,6 +260,7 @@ const loadCheckpoint = async (req, res) => {
       gene_collective_memory: cp.gene_collective_memory,
       dna_fragments: cp.dna_fragments,
       dominant_phenotype: cp.dominant_phenotype,
+      morfologia: cp.morfologia,
       inventory: cp.inventory,
       flags: cp.flags
     };
@@ -276,6 +281,7 @@ const loadCheckpoint = async (req, res) => {
         sustrato: cp.gene_substrate,
         memoria_colectiva: cp.gene_collective_memory,
       },
+      morfologia: cp.morfologia,
       inventario: cp.inventory,
       flags: cp.flags,
     });

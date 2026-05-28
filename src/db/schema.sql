@@ -22,6 +22,7 @@ CREATE TABLE IF NOT EXISTS games (
   gene_collective_memory REAL NOT NULL DEFAULT 0.31,
   dna_fragments          INTEGER NOT NULL DEFAULT 0,
   dominant_phenotype     TEXT NOT NULL DEFAULT 'Primordial Despertado',
+  morfologia             TEXT DEFAULT NULL,
   inventory              TEXT NOT NULL DEFAULT '[{"id":"hoof","name":"Pezuña","equipped":true}]',
   flags                  TEXT NOT NULL DEFAULT '{}',
   created_at             TEXT NOT NULL DEFAULT (datetime('now')),
@@ -46,6 +47,7 @@ CREATE TABLE IF NOT EXISTS checkpoints (
   gene_collective_memory REAL NOT NULL,
   dna_fragments          INTEGER NOT NULL,
   dominant_phenotype     TEXT NOT NULL,
+  morfologia             TEXT DEFAULT NULL,
   inventory              TEXT NOT NULL,
   flags                  TEXT NOT NULL,
   created_at             TEXT NOT NULL DEFAULT (datetime('now'))
