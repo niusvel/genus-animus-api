@@ -30,9 +30,15 @@ const getScene = async (req, res) => {
 
     return res.status(200).json({
       id: scene.id,
-      texto: scene.body,
+      // Texto de llegada por defecto; el cliente usa `textos` para el resto de comandos.
+      texto: (scene.textos && scene.textos.llegada) ? scene.textos.llegada : scene.body,
+      textos: scene.textos || {},
       comandos_disponibles: scene.commands,
       siguiente: scene.next,
+      checkpoint: scene.checkpoint || false,
+      // Estructura completa de la escena (salidas, objetos, lógicas, checkpoint...)
+      // para que el motor del cliente procese los comandos correctamente.
+      metadata: scene.metadata || {},
     });
   } catch (err) {
     console.error('getScene controller failed:', err);

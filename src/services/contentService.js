@@ -58,6 +58,33 @@ const parseFrontmatter = (mdString) => {
 };
 
 /**
+ * Divide la narrativa en bloques indexados por las marcas <!-- clave -->.
+ * Espejo de parseNarrative del cliente (engine/contentLoader.js) para que ambos
+ * lados produzcan exactamente el mismo mapa de textos.
+ */
+const parseNarrativeBlocks = (content) => {
+  const textos = {};
+  if (!content) return textos;
+
+  const regex = /<!--\s*([a-zA-Z0-9_-]+)\s*-->/g;
+  const matches = [];
+  let m;
+  while ((m = regex.exec(content)) !== null) {
+    matches.push({ key: m[1], index: m.index, length: m[0].length });
+  }
+
+  for (let i = 0; i < matches.length; i++) {
+    const current = matches[i];
+    const next = matches[i + 1];
+    const start = current.index + current.length;
+    const end = next ? next.index : content.length;
+    textos[current.key] = content.substring(start, end).trim();
+  }
+
+  return textos;
+};
+
+/**
  * Filter text content by player's dominant phenotype
  */
 const filterContentByPhenotype = (content, phenotype) => {
@@ -153,6 +180,9 @@ const getScene = async (sceneId, phenotype) => {
 
     const { data: narData, content } = parseFrontmatter(rawNarrative);
     const filteredBody = filterContentByPhenotype(content, phenotype);
+    // Divide la narrativa en bloques por <!-- clave --> para que el cliente pueda
+    // seleccionar el texto correspondiente a cada comando (observar, examinar, etc.).
+    const textos = parseNarrativeBlocks(content);
 
     const combinedData = {
       ...defData,
@@ -171,6 +201,8 @@ const getScene = async (sceneId, phenotype) => {
       commands,
       next,
       body: filteredBody,
+      textos,
+      checkpoint: combinedData.checkpoint || false,
       metadata: combinedData
     };
   } else {

@@ -13,10 +13,16 @@ El aire es distinto al de la cueva. No hay eco aquí — los sonidos no rebotan,
 
 La presencia familiar está quieta. No te guía esta vez — te observa. Como si este fuera un momento que debes vivir sin ayuda.
 
-Puedes `OBSERVAR`, `ESCUCHAR`, `EXAMINAR` lo que te rodea o `GUARDAR` tu progreso.
+Puedes `EXAMINAR árbol`, `EXAMINAR suelo`, `EXAMINAR abertura`, `IR agua`, `IR sendero` o `GUARDAR` tu progreso.
 
 <!-- llegada_regreso -->
 Vuelves al bosque. La luz ha cambiado desde la última vez — el amanecer ha avanzado y las franjas de oro entre las columnas son ahora más amplias, más directas. El lugar es el mismo pero no se siente igual. Algo en él ha seguido moviéndose mientras tú no estabas.
+
+A un lado, el terreno desciende hacia algo que suena a agua en movimiento. Al otro lado, una de las columnas tiene en su base una abertura — no grande, pero visible. Algo la usó alguna vez.
+
+Además, el sendero que te trajo desde la cueva.
+
+Puedes `EXAMINAR árbol`, `EXAMINAR suelo`, `EXAMINAR abertura`, `IR agua`, `IR sendero` o `GUARDAR` tu progreso.
 
 <!-- observar_1 -->
 Las columnas — árboles, aunque todavía no tienes esa palabra — se extienden en todas las direcciones sin un orden aparente. Algunas son tan anchas que necesitarías rodearte a ti mismo varias veces para abarcarlas. Otras son delgadas y se doblan levemente bajo el peso de lo que crece en sus cimas.
@@ -27,10 +33,18 @@ A tu derecha, el terreno desciende hacia algo que suena a agua en movimiento. A 
 
 Detrás de ti, el sendero de regreso hacia la cueva.
 
-Puedes `EXAMINAR árbol`, `EXAMINAR abertura`, `IR agua`, `IR sendero` o `GUARDAR` tu progreso.
+Puedes `EXAMINAR árbol`, `EXAMINAR suelo`, `EXAMINAR abertura`, `IR agua`, `IR sendero` o `GUARDAR` tu progreso.
 
 <!-- observar_repetido -->
 El bosque sigue igual de inmenso. Las columnas, la luz oblicua, el suelo blando. Pero cuanto más tiempo pasas aquí más detalles emergen — movimientos pequeños en las alturas, cambios sutiles en los sonidos, la sensación de que este lugar está continuamente ocupado aunque no veas a sus ocupantes.
+
+El sendero continúa hacia el interior del bosque. Más oscuro allí, más denso, pero no amenazante.
+
+A un lado, el terreno desciende hacia algo que suena a agua en movimiento. Al otro lado, una de las columnas tiene en su base una abertura — no grande, pero visible. Algo la usó alguna vez.
+
+Además, el sendero que te trajo desde la cueva.
+
+Puedes `EXAMINAR árbol`, `EXAMINAR suelo`, `EXAMINAR abertura`, `IR agua`, `IR sendero` o `GUARDAR` tu progreso.
 
 <!-- escuchar_1 -->
 Cierras lo que usas para ver y concentras todo en lo que usas para oír.
