@@ -100,13 +100,19 @@
   ],
 
   "logica_observar": {
-    "primera_vez": "observar_1",
-    "repetido": "observar_repetido"
+    "flag_que_otorga": "bosque_amanecer_visitado",
+    "casos": [
+      { "si": { "no": { "flag": "bosque_amanecer_visitado" } }, "texto": "observar_1" },
+      { "texto": "observar_repetido" }
+    ]
   },
 
   "logica_escuchar": {
-    "primera_vez": "escuchar_1",
-    "repetido": "escuchar_repetido"
+    "flag_que_otorga": "bosque_escuchado",
+    "casos": [
+      { "si": { "no": { "flag": "bosque_escuchado" } }, "texto": "escuchar_1" },
+      { "texto": "escuchar_repetido" }
+    ]
   },
 
   "logica_examinar": {
