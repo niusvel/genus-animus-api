@@ -5,10 +5,16 @@ id: lago_quietud
 <!-- llegada -->
 Has llegado a un claro del bosque donde existe un gran estanque de agua en el centro. La vista está menos cargada que en el bosque, aquí todo es pequeño y parejo. Es una vista perfecta y mientras te vas acercando al estanque ves el agua tranquila y el viento soplando a tu alrededor formando una melodía espléndida.
 
+A la orilla se ve un grupo de peces muertos y unas huellas muy sospechosas.
+
+En el agua se puede ver un reflejo.
+
 <!-- observar -->
 Hay un gran estanque de agua en el centro rodeado de un parejo y pequeño manto verde. Es una vista perfecta y el estanque está inmerso en una quietud que embriaga.
 
-Hay marcas de pisadas de alguna criatura que ha pasado por aquí y se dirigen hacia las rocas que se ven a lo lejos.
+En el agua se puede ver un reflejo.
+
+A la orilla se ve un grupo de peces muertos y unas huellas de pisadas de alguna criatura que ha pasado por aquí y se dirigen hacia las rocas que se ven a lo lejos.
 
 <!-- ir_bosque -->
 Avanzas hacia el bosque, dejando atrás el lago y su quietud.
