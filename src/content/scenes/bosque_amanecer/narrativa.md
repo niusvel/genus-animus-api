@@ -11,6 +11,8 @@ El suelo aquí es blando. Cada paso se hunde levemente en algo que cede sin romp
 
 El aire es distinto al de la cueva. No hay eco aquí — los sonidos no rebotan, se absorben, se disuelven entre las columnas y el suelo blando. En su lugar hay otros sonidos: pequeños, dispersos, viniendo de todas las alturas al mismo tiempo. Algo que se mueve en las cimas. Algo que responde a algo. Un lenguaje que no reconoces pero que tu organismo registra como información.
 
+A lo lejos se ve algo líquido que refleja claridad y quietud, que se alimenta de un fino arrollo que pasa cerca de ti. Tu cuerpo reconoce el sonido del líquido al rozar las rocas, ¡es agua! pero lo que ves a lo lejos es agua acumulada y se ve interesante desde tu posición.
+
 La presencia familiar está quieta. No te guía esta vez — te observa. Como si este fuera un momento que debes vivir sin ayuda.
 
 Puedes `EXAMINAR árbol`, `EXAMINAR suelo`, `EXAMINAR abertura`, `IR agua`, `IR sendero` o `GUARDAR` tu progreso.
@@ -23,6 +25,15 @@ A un lado, el terreno desciende hacia algo que suena a agua en movimiento. Al ot
 Además, el sendero que te trajo desde la cueva.
 
 Puedes `EXAMINAR árbol`, `EXAMINAR suelo`, `EXAMINAR abertura`, `IR agua`, `IR sendero` o `GUARDAR` tu progreso.
+
+<!-- ir_sendero_regreso -->
+Regresas por el sendero hacia el umbral de la cueva. La luz del amanecer queda a tu espalda.
+
+<!-- ir_agua -->
+Sigues el flujo del riachuelo hacia el estanque del agua. El terreno se inclina suavemente y el suelo cambia bajo tus pasos — más húmedo, más denso, con formas que crecen con un tamaño uniforme y más verdes cuanto más te acercas.
+
+<!-- ir_interior -->
+Te adentras en el bosque. La luz disminuye a medida que las columnas se aprietan y sus cimas se cierran sobre ti. La oscuridad aquí es densa pero viva — llena de movimiento, de sonidos, de señales que todavía no sabes leer.
 
 <!-- observar_1 -->
 Las columnas — árboles, aunque todavía no tienes esa palabra — se extienden en todas las direcciones sin un orden aparente. Algunas son tan anchas que necesitarías rodearte a ti mismo varias veces para abarcarlas. Otras son delgadas y se doblan levemente bajo el peso de lo que crece en sus cimas.
@@ -89,12 +100,3 @@ El suelo del bosque está vivo de formas que la roca de la cueva nunca estuvo.
 
 <!-- examinar_suelo_agotado -->
 Ya examinaste el suelo. La información que contiene supera lo que puedes procesar por ahora.
-
-<!-- ir_agua -->
-Desciendes hacia el sonido del agua. El terreno se inclina suavemente y el suelo cambia bajo tus pasos — más húmedo, más denso, con formas que crecen más altas y más verdes cuanto más te acercas.
-
-<!-- ir_sendero_regreso -->
-Regresas por el sendero hacia el umbral de la cueva. La luz del amanecer queda a tu espalda.
-
-<!-- ir_interior -->
-Te adentras en el bosque. La luz disminuye a medida que las columnas se aprietan y sus cimas se cierran sobre ti. La oscuridad aquí es densa pero viva — llena de movimiento, de sonidos, de señales que todavía no sabes leer.

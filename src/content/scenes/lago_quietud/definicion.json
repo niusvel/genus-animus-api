@@ -1,0 +1,106 @@
+{
+    "id": "lago_quietud",
+    "zona": "lago_quietud",
+    "nombre": "Lago de la quietud",
+    "checkpoint": false,
+    "flags_que_requiere": [
+        "bosque_amanecer_visitado"
+    ],
+    "flags_que_otorga": [
+        "lago_quietud_visitado"
+    ],
+    "comandos_iniciales": [
+        "AYUDA",
+        "OBSERVAR",
+        "ESCUCHAR",
+        "EXAMINAR",
+        "IR",
+        "DESEQUIPAR",
+        "INVENTARIO",
+        "FRAGMENTOS",
+        "INVESTIGAR",
+        "MUTAR",
+        "CANCELAR",
+        "DESCANSAR",
+        "ESTADO",
+        "RECORDAR",
+        "TOMAR",
+        "EQUIPAR",
+        "SOLTAR"
+    ],
+    "comandos_desbloqueables": [],
+    "objetos": [
+        {
+            "id": "peces",
+            "nombre": "peces muertos",
+            "descripcion_corta": "grupo de peces muertos con heridas letales en sus cuerpos",
+            "tomable": false,
+            "examinable": true,
+            "visible_desde_inicio": true,
+            "usos_examinar": 1,
+            "fragmentos_adn": 2
+        },
+        {
+            "id": "reflejo",
+            "nombre": "criatura en el agua",
+            "descripcion_corta": "es una criatura que se mueve igual que tu, te copia los movimientos... ¡eres tú mismo, es tu reflejo en el agua! ",
+            "tomable": false,
+            "examinable": true,
+            "visible_desde_inicio": true,
+            "usos_examinar": 1
+        },
+        {
+            "id": "huellas",
+            "nombre": "huellas",
+            "descripcion_corta": "son marcas en el suelo como las que has dejado tú en tu trayecto hasta el lago, pero estas no son tuyas. Estas son más grandes que las tuyas y más profundas, lo que sea que las haya dejado es más grande y más pesado que tú. Estas rodean el lago hasta las piedras que se ven más adelante.",
+            "tomable": false,
+            "examinable": true,
+            "visible_desde_inicio": true,
+            "usos_examinar": 1
+        }
+    ],
+    "desbloqueos": [],
+    "salidas": [
+        {
+            "id": "salida_bosque",
+            "comando": "IR",
+            "palabra_clave": "bosque",
+            "destino": "bosque_amanecer",
+            "requiere_flag": null,
+            "texto_bloqueado_id": null,
+            "texto_transicion_id": "ir_bosque"
+        },
+        {
+            "id": "salida_rocas",
+            "comando": "IR",
+            "palabra_clave": "rocas",
+            "destino": "rocas_lago_quietud",
+            "requiere_flag": null,
+            "texto_bloqueado_id": null,
+            "texto_transicion_id": "ir_rocas"
+        }
+    ],
+    "entradas": [
+        {
+            "origen": "bosque_amanecer",
+            "texto_llegada_id": "llegada"
+        },
+        {
+            "origen": "rocas_lago_quietud",
+            "texto_llegada_id": "observar"
+        }
+    ],
+    "logica_observar": {
+        "casos": [
+            { "texto": "observar" }
+        ]
+    },
+    "logica_examinar": {
+        "peces_disponible": "examinar_peces",
+        "peces_agotado": "examinar_peces_agotado",
+        "reflejo_disponible": "examinar_reflejo",
+        "reflejo_agotado": "examinar_reflejo_agotado",
+        "huellas_disponible": "examinar_huellas",
+        "huellas_agotado": "examinar_huellas_agotado"
+    }
+}

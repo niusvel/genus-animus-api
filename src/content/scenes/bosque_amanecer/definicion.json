@@ -1,14 +1,27 @@
 {
+  "contadores": {},
   "id": "bosque_amanecer",
   "zona": "bosque_exterior",
   "nombre": "El Bosque del Amanecer",
   "checkpoint": true,
-  "flags_que_requiere": ["first_mutation_completed"],
-  "flags_que_otorga": ["bosque_amanecer_visitado"],
-
-  "comandos_iniciales": ["OBSERVAR", "ESCUCHAR", "EXAMINAR", "AYUDA"],
-  "comandos_desbloqueables": ["IR", "FRAGMENTOS", "INVENTARIO", "ESTADO"],
-
+  "flags_que_requiere": [
+    "first_mutation_completed"
+  ],
+  "flags_que_otorga": [
+    "bosque_amanecer_visitado"
+  ],
+  "comandos_iniciales": [
+    "OBSERVAR",
+    "ESCUCHAR",
+    "EXAMINAR",
+    "AYUDA"
+  ],
+  "comandos_desbloqueables": [
+    "IR",
+    "FRAGMENTOS",
+    "INVENTARIO",
+    "ESTADO"
+  ],
   "objetos": [
     {
       "id": "arbol",
@@ -16,8 +29,8 @@
       "descripcion_corta": "una columna enorme de superficie rugosa y viva",
       "tomable": false,
       "examinable": true,
-      "usos_examinar": 1,
-      "visible_desde_inicio": true
+      "visible_desde_inicio": true,
+      "usos_examinar": 1
     },
     {
       "id": "abertura",
@@ -25,8 +38,8 @@
       "descripcion_corta": "una abertura en la base de un árbol, pequeña y gastada",
       "tomable": false,
       "examinable": true,
-      "usos_examinar": 1,
-      "visible_desde_inicio": true
+      "visible_desde_inicio": true,
+      "usos_examinar": 1
     },
     {
       "id": "suelo",
@@ -34,13 +47,10 @@
       "descripcion_corta": "capas de materia orgánica húmeda y viva",
       "tomable": false,
       "examinable": true,
-      "usos_examinar": 1,
-      "visible_desde_inicio": true
+      "visible_desde_inicio": true,
+      "usos_examinar": 1
     }
   ],
-
-  "contadores": {},
-
   "desbloqueos": [
     {
       "id": "desbloqueo_ir",
@@ -48,12 +58,17 @@
         "tipo": "flag",
         "flag": "bosque_amanecer_visitado"
       },
-      "desbloquea_comandos": ["IR", "FRAGMENTOS", "INVENTARIO", "ESTADO"],
+      "desbloquea_comandos": [
+        "IR",
+        "FRAGMENTOS",
+        "INVENTARIO",
+        "ESTADO"
+      ],
+      "flags_que_otorga": [],
       "texto_id": null,
       "se_repite": false
     }
   ],
-
   "salidas": [
     {
       "id": "salida_sendero",
@@ -68,7 +83,7 @@
       "id": "salida_agua",
       "comando": "IR",
       "palabra_clave": "agua",
-      "destino": "orilla_arroyo",
+      "destino": "lago_quietud",
       "requiere_flag": null,
       "texto_bloqueado_id": null,
       "texto_transicion_id": "ir_agua"
@@ -83,14 +98,13 @@
       "texto_transicion_id": "ir_interior"
     }
   ],
-
   "entradas": [
     {
       "origen": "cueva_salida",
       "texto_llegada_id": "llegada"
     },
     {
-      "origen": "orilla_arroyo",
+      "origen": "lago_quietud",
       "texto_llegada_id": "llegada_regreso"
     },
     {
@@ -98,23 +112,38 @@
       "texto_llegada_id": "llegada_regreso"
     }
   ],
-
   "logica_observar": {
     "flag_que_otorga": "bosque_amanecer_visitado",
     "casos": [
-      { "si": { "no": { "flag": "bosque_amanecer_visitado" } }, "texto": "observar_1" },
-      { "texto": "observar_repetido" }
+      {
+        "texto": "observar_1",
+        "si": {
+          "no": {
+            "flag": "bosque_amanecer_visitado"
+          }
+        }
+      },
+      {
+        "texto": "observar_repetido"
+      }
     ]
   },
-
   "logica_escuchar": {
     "flag_que_otorga": "bosque_escuchado",
     "casos": [
-      { "si": { "no": { "flag": "bosque_escuchado" } }, "texto": "escuchar_1" },
-      { "texto": "escuchar_repetido" }
+      {
+        "texto": "escuchar_1",
+        "si": {
+          "no": {
+            "flag": "bosque_escuchado"
+          }
+        }
+      },
+      {
+        "texto": "escuchar_repetido"
+      }
     ]
   },
-
   "logica_examinar": {
     "arbol_disponible": "examinar_arbol",
     "arbol_agotado": "examinar_arbol_agotado",
