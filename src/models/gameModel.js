@@ -118,6 +118,19 @@ const updateCheckpoint = async (userId, checkpoint, currentScene, flags) => {
   });
 };
 
+const updateCurrentScene = async (userId, currentScene) => {
+  const query = `
+    UPDATE games SET
+      current_scene = ?,
+      updated_at = datetime('now')
+    WHERE user_id = ?;
+  `;
+  await db.execute({
+    sql: query,
+    args: [currentScene, userId],
+  });
+};
+
 const updateInventory = async (userId, inventoryList) => {
   const query = `
     UPDATE games SET
@@ -166,6 +179,7 @@ module.exports = {
   createGame,
   updateGame,
   updateCheckpoint,
+  updateCurrentScene,
   updateInventory,
   updateMutation,
 };

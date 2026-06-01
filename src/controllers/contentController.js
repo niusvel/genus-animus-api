@@ -15,18 +15,38 @@ const getScene = async (req, res) => {
     // User can access their current_scene, or the prologue scenes (01_cocoon, 02_nine_cocoons, 03_exit).
     const allowedIntroScenes = ['cocoon', 'nine_cocoons', 'exit', '01_cocoon', '02_nine_cocoons', '03_exit'];
     
-    const isCurrentScene = game.current_scene === sceneId || 
-                           game.current_scene.endsWith(sceneId) || 
+    const isCurrentScene = game.current_scene === sceneId ||
+                           game.current_scene.endsWith(sceneId) ||
                            sceneId.endsWith(game.current_scene);
-                           
+
     const isIntroScene = allowedIntroScenes.includes(sceneId);
 
+    // Progresión: también se permite pedir una escena que sea destino de una salida
+    // de la escena actual (el cliente navega antes de que el servidor lo sepa).
+    let isReachable = false;
     if (!isCurrentScene && !isIntroScene) {
+      try {
+        const actual = await contentService.getScene(game.current_scene, game.dominant_phenotype);
+        const salidas = (actual.metadata && actual.metadata.salidas) || [];
+        isReachable = salidas.some((s) => s.destino === sceneId);
+      } catch (e) {
+        // La escena actual puede no existir como contenido del backend (p.ej. prólogo
+        // del cliente); en ese caso no hay salidas que comprobar.
+      }
+    }
+
+    if (!isCurrentScene && !isIntroScene && !isReachable) {
       return res.status(403).json({ error: 'scene_not_accessible' });
     }
 
     // Fetch and filter content
     const scene = await contentService.getScene(sceneId, game.dominant_phenotype);
+
+    // Al navegar a una escena alcanzable, avanzar el current_scene del servidor para
+    // que las siguientes peticiones (y los checkpoints) partan de la escena correcta.
+    if (isReachable) {
+      await gameModel.updateCurrentScene(userId, sceneId);
+    }
 
     return res.status(200).json({
       id: scene.id,
